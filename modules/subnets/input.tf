@@ -12,6 +12,10 @@ variable "on-premise-routes" {
   type = "list"
 }
 
+variable "link-local-dns" {
+  default = "169.254.169.254"
+}
+
 variable "search-domain" {}
 
 variable "custom-dns" {

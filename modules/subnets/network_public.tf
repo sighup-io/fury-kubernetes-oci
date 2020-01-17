@@ -46,12 +46,13 @@ resource "oci_core_dhcp_options" "master" {
 
   options {
     type        = "DomainNameServer"
-    server_type = "VcnLocalPlusInternet"
+    server_type = "CustomDnsServer"
+    custom_dns_servers = ["${var.custom-dns}", "${var.link-local-dns}"]
   }
 
   options {
     type                = "SearchDomain"
-    search_domain_names = ["${var.vcn-dns-label}.oraclevcn.com"]
+    search_domain_names = ["${var.search-domain}"]
   }
 }
 
